@@ -1,0 +1,49 @@
+{%extends 'itistudent/home.html'%}
+{% load static %}
+{%block content%}
+<div class="container">
+  
+
+    <h2 class="text-center">available Tracks</h2>
+ 
+
+  {%csrf_token %}
+
+<div class="row">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Track name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for t in  object_list%}
+      <tr>
+        
+        <td>
+          <div class="col text-secondary">
+            {{t.id}}
+          </div>
+        </td>
+        <td>
+          <div class="col text-secondary">
+            {{t.name}}
+          </div>
+        </td>
+      </tr>
+      {%endfor%}
+      
+    </tbody>
+    
+  </table>
+</div>
+  
+  
+</div>
+{%endblock%}

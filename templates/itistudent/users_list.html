@@ -1,0 +1,56 @@
+{%extends 'itistudent/home.html'%}
+{% load static %}
+{%block content%}
+<div class="container">
+
+  <h2 class="text-center">List of avialble users</h2>
+  <div class="bg-info">
+    
+    <h4 >(You should have access from admin)</h4>
+  </div>
+
+{%csrf_token %}
+
+<div class="row">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Username
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for t in  object_list%}
+    <tr>
+      
+      <td>
+        <div class="col text-secondary">
+          {{t.id}}
+        </div>
+      </td>
+      <td>
+        <div class="col text-secondary">
+          {{t.username}}
+        </div>
+      </td>
+    </tr>
+    {%endfor%}
+    
+  </tbody>
+  
+</table>
+</div>
+
+
+</div>
+
+{%endblock%}
+
+
+
+

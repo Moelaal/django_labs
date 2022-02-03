@@ -1,0 +1,22 @@
+{%extends 'itistudent/home.html'%}
+{% load static %}
+{%block content%}
+<div class="container">
+  <h2 class="h2 text-center">Registeration Form</h2>
+<form method="post" style="margin-top:50px">
+    <div class="form-group">
+        {%csrf_token %}
+        <input type="text" class="form-control" name="username" placeholder="Username" required/>
+    </div>
+    <div class="form-group">
+        
+        <input type="text" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        
+        <input type="password" class="form-control" name="password" required placeholder="Enter Password"/>
+    </div>
+        <input type="submit" value="Register" class="btn btn-primary">
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,46 @@
+{% extends 'itistudent/home.html'%} {% block content %}
+<div class="container mt-3">
+  <h3>Student Details</h3>
+  <a href="{% url 'itistudent:add' %}" class="btn btn-sm btn-info  m-3">Add new</a>
+  <a href="{% url 'itistudent:insert' %}" class="btn btn-sm btn-info  m-3">Insert With form</a>
+  <hr />
+
+  <table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Track
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        </thead>
+    <tbody>
+        {% for e in student %}
+        <tr>
+            <td>{{ e.id }}</td>
+            <td>{{ e.name }}</td>
+            <td>{{ e.age }}</td>
+            <td>{{ e.track }}</td>
+            <td>
+                <a href="/update/{{e.id}}" class="btn btn-sm btn-info" type="submit">Update</a>
+                <a href="/delete/{{e.id}}" class="btn btn-sm btn-danger" type="submit" >Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
